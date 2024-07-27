@@ -75,6 +75,7 @@ static const ISA isas_uarch[] = {
   [UARCH_THUNDERX]     = ISA_ARMv8_A,
   [UARCH_THUNDERX2]    = ISA_ARMv8_1_A,
   [UARCH_TAISHAN_V110] = ISA_ARMv8_2_A,
+  [UARCH_TAISHAN_V120] = ISA_ARMv8_A,
   [UARCH_TAISHAN_V200] = ISA_ARMv8_2_A, // Not confirmed
   [UARCH_DENVER]       = ISA_ARMv8_A,
   [UARCH_DENVER2]      = ISA_ARMv8_A,
@@ -202,6 +203,8 @@ struct uarch* get_uarch_from_midr(uint32_t midr, struct cpuInfo* cpu) {
   CHECK_UARCH(arch, cpu, 'C', 0x0AF, NA, NA, "ThunderX2 99XX",        UARCH_THUNDERX2,    CPU_VENDOR_CAVIUM)
 
   CHECK_UARCH(arch, cpu, 'H', 0xD01, NA, NA, "TaiShan v110",          UARCH_TAISHAN_V110, CPU_VENDOR_HUAWEI) // Kunpeng 920 series
+  CHECK_UARCH(arch, cpu, 'H', 0xD02,  2,  2, "TaiShan v120",          UARCH_TAISHAN_V120, CPU_VENDOR_HUAWEI) // Kirin 9000S Big cores
+  CHECK_UARCH(arch, cpu, 'H', 0xD42,  2,  2, "TaiShan v120",          UARCH_TAISHAN_V120, CPU_VENDOR_HUAWEI) // Kirin 9000S Medium cores
   CHECK_UARCH(arch, cpu, 'H', 0xD02, NA, NA, "TaiShan v200",          UARCH_TAISHAN_V200, CPU_VENDOR_HUAWEI) // Kunpeng 930 series (found in openeuler: https://mailweb.openeuler.org/hyperkitty/list/kernel@openeuler.org/message/XQCV7NX2UKRIUWUFKRF4PO3QENCOUFR3)
   CHECK_UARCH(arch, cpu, 'H', 0xD40, NA, NA, "Cortex-A76",            UARCH_CORTEX_A76,   CPU_VENDOR_ARM)    // Kirin 980 Big/Medium cores -> Cortex-A76
 
